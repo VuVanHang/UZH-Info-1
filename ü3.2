@@ -1,0 +1,58 @@
+if __name__ == "__main__":
+    pwd = "abc"
+
+
+is_valid = False
+error_counter = 0
+lower_counter = 0
+upper_counter = 0
+digit_counter = 0
+spec_char_counter = 0
+allowed_chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-*/"
+
+for x in pwd:
+    if x not in allowed_chars:
+        error_counter += 1
+
+
+# Testing amount of chars
+
+if not 8 <= len(pwd) <= 16:
+    error_counter += 1
+
+
+# Testing amount of uppercase letters
+for n in pwd:
+    if n.isupper():
+        upper_counter += 1
+if not upper_counter >= 2:
+    error_counter += 1
+
+
+# Testing amount of lowercase letters
+for n in pwd:
+    if n.islower():
+        lower_counter += 1
+if not lower_counter >= 2:
+    error_counter += 1
+
+
+# Testing amount of digits
+for n in pwd:
+    if str(n).isdigit():
+        digit_counter += 1
+if not digit_counter >= 2:
+    error_counter += 1
+
+
+for n in pwd:
+    if n == "+" or n == "-" or n == "*" or n == "/":
+        spec_char_counter += 1
+if not spec_char_counter >= 2:
+    error_counter += 1
+
+
+if error_counter == 0:
+    is_valid = True
+
+print(is_valid)
