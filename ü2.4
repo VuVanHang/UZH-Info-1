@@ -1,0 +1,8 @@
+if __name__ == "__main__":
+    s = "aB:cD"
+
+# perform the transformation
+marker = s.find(":")
+first_word = s[:marker]
+second_word = s[marker+1:]
+res = "%s:%s" %(first_word.lower(),second_word.upper())
