@@ -1,0 +1,34 @@
+if __name__ == "__main__":
+    plain_text = "abc"
+    shift_by = 1
+
+# perform a ROTn encoding
+
+store_shift = []
+x = 0
+true_shift = shift_by % 26
+for n in plain_text:
+    if n.isalpha():
+        if n.isupper():
+            code_up = ord(n) + true_shift
+            if code_up > 90:
+                new_code_up = code_up - 91
+                n = chr(new_code_up + 65)
+            else:
+                n = chr(code_up)
+            store_shift.append(n)
+        if n.islower():
+            code_down = ord(n) + true_shift
+            if code_down > 122:
+                new_code_down = code_down - 123
+                n = chr(new_code_down + 97)
+
+            else:
+                n = chr(code_down)
+            store_shift.append(n)
+    else:
+        store_shift.append(n)
+
+encoded = ''.join(store_shift)
+print(encoded)
+
