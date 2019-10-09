@@ -1,0 +1,19 @@
+def is_prime(n):
+    x = False
+    
+    #Case where n == 1
+    if n == 1:                
+        return "1 is the multiplicative identity"
+    a = 2
+    
+    #Testing all numbers from 2 till n
+    while a < n+2:
+        if n == a:
+            return "{} is prime".format(n)
+        if n % a == 0:
+            b = int(n/a)
+            return "{} is not a prime number ({} * {} = {})".format(n,a,b,n)
+        a += 1
+
+if __name__ == '__main__':
+    print(is_prime(12))
