@@ -1,4 +1,4 @@
-# n! = n * (n-1) * (n-2)...
+# n! = n * (n-1) * (n-2)... till n == 1
 def fac(n):
     if n == 0:
         return 1
