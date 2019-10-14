@@ -1,0 +1,24 @@
+import os
+
+def get_average_grade(path):
+    if not os.path.exists(path):
+        return None
+    #path = "/Users/bYves/PycharmProjects/UZH_Info1/my_grades.txt"
+    grade_save = []
+    with open(path, "r") as f:
+        for f in f.readlines():
+            if f[0:1] == "#" or f[0:1] == "\n":
+                continue
+            clean_line = f.rstrip()
+            idx = clean_line.find(":")
+            grade = float(clean_line[idx + 1:])
+            grade_save.append(grade)
+        if len(grade_save) == 0:
+            return 0.0
+    return sum(grade_save)/len(grade_save)
+
+# You can play around with your solution from within this block.
+if __name__ == '__main__':
+    #path = "/Users/bYves/PycharmProjects/UZH_Info1/my_grades.txt"
+    print(get_average_grade("public/my_grades.txt"))
+    #print(get_average_grade(path))
