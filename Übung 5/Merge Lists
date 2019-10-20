@@ -1,7 +1,8 @@
-merged_list = []
-
 def merge(a, b):
 
+    if a == [] or b == []:
+        return []
+    
     merged_list = []
 
     def pos11(x, y):
@@ -35,4 +36,4 @@ def merge(a, b):
 
 
 if __name__ == '__main__':
-    print(merge([], [2,3,4]))
+    print(merge([1,2,3], [2,3,4]))
