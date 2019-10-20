@@ -1,0 +1,22 @@
+#ACHTUNG!! NUR 0.75 Punkte :(
+
+def invert(d):
+    
+    werte = set(d.values())  # post: {1, 3}
+    new_dic = {}
+
+    for wert in werte:
+        new_dic[wert] = []  # post: {1: [], 3: []}
+
+    for key, value in d.items():
+        saver = new_dic.get(value)
+        saver.append(key)
+        saver.sort()
+
+    new_dic[value] = saver
+
+    return new_dic
+
+# You can play around with your solution from within this block.
+if __name__ == '__main__':
+    print(invert({"a":1, "b":1, "c":3}))
