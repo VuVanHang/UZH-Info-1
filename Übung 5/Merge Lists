@@ -1,0 +1,36 @@
+merged_list = []
+
+def pos11(x, y):
+    if x > y - 1:
+        return y - 1
+    if x < y - 1:
+        return x
+    if x == y - 1:
+        return y - 1
+
+
+def pos22(x, y):
+    if x > y - 1:
+        return y - 1
+    if x < y - 1:
+        return x
+    if x == y - 1:
+        return y - 1
+
+
+def merge(a, b):
+    pos1 = 0
+    pos2 = 0
+    while True:
+
+        if pos1 > len(a) - 1 and pos2 > len(b) - 1:
+            return merged_list
+
+        tuples = (a[pos11(pos1, len(a))], b[pos22(pos2, len(b))])
+        merged_list.append(tuples)
+        pos1 += 1
+        pos2 += 1
+
+
+if __name__ == '__main__':
+    print(merge([1,2,3], [2,3,4]))
