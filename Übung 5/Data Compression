@@ -1,0 +1,27 @@
+def compress(data):
+    keys = []
+    if data == []:
+        return ((),[])
+
+    for x in data[0]:  # ['a', 'b', 'c']
+        if data[0] != {}:
+            keys.append(x)
+    keys.sort()
+    i = 0
+    y = []
+    while i < len(data):
+        x = tuple([data[i][key] for key in keys])
+        y.append(x)
+        i += 1
+
+    result = (tuple(keys), y)
+    return result
+
+
+# You can play around with your solution from within this block.
+if __name__ == '__main__':
+    data = [
+        {"a": 1, "b": 2, "c": 3},
+        {"a": 4, "c": 6, "b": 5}
+    ]
+    print(compress(data))
