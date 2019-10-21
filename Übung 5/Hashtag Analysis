@@ -1,0 +1,34 @@
+#ACHTUNG! Nur 3.75 Punkte!
+
+import re
+
+def analyze(posts):
+    posts_str = " ".join(posts)  # posts as a string
+    hashtags = re.findall(r"#(\w+)", posts_str)  # finding all hashtags with regex as a list
+    hashtag_str = " ".join(hashtags)  # converting hashtag list into a string
+    hashtag_list = []  # contains all hashtags
+    stripped_list = []  # contains all hashtags without duplicates
+    counted_list = []
+
+    for hashtag in hashtags:
+        hashtag_list.append(hashtag)
+
+    for hashtag in hashtag_list:
+        if hashtag not in stripped_list:
+            stripped_list.append(hashtag)
+
+    wordcount = dict((x, 0) for x in stripped_list)
+    for word in re.findall(r"\w+", hashtag_str):
+        if word in wordcount:
+            wordcount[word] += 1
+
+    return wordcount
+
+# You can play around with your solution from within this block.
+if __name__ == '__main__':
+    posts = [
+        "hi #weekend",
+        "good morning #zurich #limmat",
+        "spend my #weekend in #zurich",
+        "#zurich <3"]
+    print(analyze(posts))
